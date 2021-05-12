@@ -15,6 +15,46 @@
       "category": "Bills",
       "amount": 900,
       "createdAt": "2021-05-04T05:25:41.430Z"
+    },
+    {
+      "title": "Teste",
+      "amount": 300,
+      "type": "withdraw",
+      "category": "200",
+      "createdAt": "2021-05-12T02:37:46.283Z",
+      "id": 3
+    },
+    {
+      "title": "Mercadi",
+      "amount": 500,
+      "type": "deposit",
+      "category": "Venda",
+      "createdAt": "2021-05-12T02:43:45.434Z",
+      "id": 4
+    },
+    {
+      "title": "Tesad",
+      "amount": 2123,
+      "type": "deposit",
+      "category": "jdsbfkhjsd",
+      "createdAt": "2021-05-12T02:45:53.003Z",
+      "id": 5
+    },
+    {
+      "title": "sfgfdgdfg",
+      "amount": 567,
+      "type": "withdraw",
+      "category": "fgdgfdgd",
+      "createdAt": "2021-05-12T02:49:00.603Z",
+      "id": 6
+    },
+    {
+      "title": "ghfghgf",
+      "amount": 543453,
+      "type": "withdraw",
+      "category": "dfdb",
+      "createdAt": "2021-05-12T02:49:42.724Z",
+      "id": 7
     }
   ]
 }

@@ -1,175 +1,83 @@
-# VUTTR API
-Este repositório contém uma simples API para o desafio de front-end do BossaBox.
-Requisitos:
-* NodeJS v5.2.0+
+# CS Money
+This repository contains a simple API for the [CS Money](https://csmoney.herokuapp.com/) front-end challenge.
+Requirements:
+* [NodeJS v5.2.0+](https://nodejs.org/en/download/)
 
-## Como executar
-Faça o clone/download deste repositório, execute `npm install` e `npx json-server db.json`. A API fica localizada em `http://localhost:3000`.
+## How to run
+Clone/Download this repository, run `npm install` and` npx json-server db.json`. The API is located at `http: // localhost: 3000`.
 
-## Rotas
-Todas as requisições de POST para esta API devem conter o header `Content-Type: application/json`.
-Esta API contém as seguintes rotas:
+## Routes
+All POST requests for this API must contain the `Content-Type: application / json` header.
+This API contains the following routes:
 
-* `GET /tools` : lista as ferramentas cadastradas
-* `POST /tools` : cria uma nova ferramenta
-* `DELETE /tools/:id` : apaga a ferramenta com ID :id
+* `GET /transaction`: lists the registered transaction
+* `POST /transaction`: create a new transaction
+* `DELETE /transaction /: id`: delete the transaction with ID: id
 
-Para filtrar as ferramentas em `GET /tools`, é possível:
-* fazer uma busca global utilizando a query string `?q=:busca`;
-* fazer uma busca por tags individuais utilizando a query string `?tags_like=:busca`.
+## Examples
 
-## Exemplos
+### GET /transaction
 
-### GET /tools
-
-Requisição: 
+Request: 
 ```javascript
-GET /tools
+GET /transaction
 ```
-Resposta:
+Response:
 ```javascript
 [
-    {
-        id: 1,
-        title: "Notion",
-        link: "https://notion.so",
-        description: "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. ",
-        tags: [
-            "organization",
-            "planning",
-            "collaboration",
-            "writing",
-            "calendar"
-        ]
-    },
-    {
-        id: 2,
-        title: "json-server",
-        link: "https://github.com/typicode/json-server",
-        description: "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
-        tags: [
-            "api",
-            "json",
-            "schema",
-            "node",
-            "github",
-            "rest"
-        ]
-    },
-    {
-        id: 3,
-        title: "fastify",
-        link: "https://www.fastify.io/",
-        description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
-        tags: [
-            "web",
-            "framework",
-            "node",
-            "http2",
-            "https",
-            "localhost"
-        ]
-    }
+  {
+    "id": 1,
+    "title": "Freelance RocketSeat",
+    "type": "deposit",
+    "category": "Dev",
+    "amount": 2000,
+    "createdAt": "2021-05-08T03:35:31.860Z"
+  },
+  {
+    "id": 2,
+    "title": "House Rent",
+    "type": "withdraw",
+    "category": "Bills",
+    "amount": 900,
+    "createdAt": "2021-05-04T05:25:41.430Z"
+  }
 ]
 ```
 
-### GET /tools?q=:busca
+### POST /transaction
 
-Requisição: 
+Request: 
 ```javascript
-GET /tools?q=notion
-```
-Resposta:
-```javascript
-[
-    {
-        id: 1,
-        title: "Notion",
-        link: "https://notion.so",
-        description: "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. ",
-        tags: [
-            "organization",
-            "planning",
-            "collaboration",
-            "writing",
-            "calendar"
-        ]
-    }
-]
-```
-
-### GET /tools?tags_like=:busca
-
-Requisição: 
-```javascript
-GET /tools?tags_like=node
-```
-Resposta:
-```javascript
-[
-    {
-        id: 2,
-        title: "json-server",
-        link: "https://github.com/typicode/json-server",
-        description: "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
-        tags: [
-            "api",
-            "json",
-            "schema",
-            "node",
-            "github",
-            "rest"
-        ]
-    },
-    {
-        id: 3,
-        title: "fastify",
-        link: "https://www.fastify.io/",
-        description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
-        tags: [
-            "web",
-            "framework",
-            "node",
-            "http2",
-            "https",
-            "localhost"
-        ]
-    }
-]
-```
-
-### POST /tools
-
-Requisição:
-```javascript
-// POST /tools
+// POST /transaction
 // Content-Type: application/json
 {
-    "title": "hotel",
-    "link": "https://github.com/typicode/hotel",
-    "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
-    "tags":["node", "organizing", "webapps", "domain", "developer", "https", "proxy"]
+    "title": "Supermarket",
+    "type": "withdraw",
+    "category": "Bills",
+    "amount": 300,
+    "createdAt": "2021-05-09T09:25:41.490Z"
 }
 ```
 
-Resposta:
+Response:
 ```javascript
 {
-    "title": "hotel",
-    "link": "https://github.com/typicode/hotel",
-    "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
-    "tags":["node", "organizing", "webapps", "domain", "developer", "https", "proxy"],
-    "id":5
+    "title": "Supermarket",
+    "type": "withdraw",
+    "category": "Bills",
+    "amount": 300,
+    "createdAt": "2021-05-09T09:25:41.490Z",
+    "id": 3
 }
 ```
 
-### DELETE /tools/:id
-Requisição:
+### DELETE /transaction/:id
+Request:
 ```javascript
-DELETE /tools/5
+DELETE /transaction/3
 ```
 
-Resposta:
+Response:
 ```javascript
 // Status: 200 OK
 {}
